@@ -130,7 +130,7 @@ const processImage = async (imgElem, options) => {
       querystring.parse(parsedUrl.query).fm;
   }
 
-  imgElem.setAttribute('data-src', imgElem.src);
+  imgElem.setAttribute('data-src', imgPath);
 
   const classNameArr = Array.isArray(className) ? className : [className];
   imgElem.classList.add(...classNameArr);
@@ -143,7 +143,7 @@ const processImage = async (imgElem, options) => {
 
   try {
     const image = await getImageData(imgPath);
-    imgElem.setAttribute('src', image.src);
+    imgElem.setAttribute('src', imgPath);
 
     if (!setWidthAndHeightAttrs || fileExt === 'svg') {
       return;
